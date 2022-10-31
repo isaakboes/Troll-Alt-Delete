@@ -1,0 +1,31 @@
+<!--for lisence and terms, see main.js. for full terms, as well as info about the project, see readme.md-->
+
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            background-color:#030408;
+            color:#F9F9F9;
+            margin: 0%;
+        }
+        canvas{
+            color:#F9F9F9;
+            image-resolution: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            padding:0%;
+        }
+    </style>
+</head>
+<body>
+    <canvas width=100%, height=100%, id="canv"></canvas>
+
+    <!--load game resources-->
+    <script type="text/javascript" src="img.js"></script><!--loads all images-->
+    <script type="text/javascript" src=resources/levels.js></script><!--loads all levels-->
+    <!--load game scripts-->
+    <script type="text/javascript" src="inputs.js"></script><!--detects and logs all keypresses-->
+    <script type="text/javascript" src="main.js"></script><!--main game scripts-->
+</body>
