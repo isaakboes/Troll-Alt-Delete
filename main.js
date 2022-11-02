@@ -28,6 +28,7 @@ canvas.height = pageHeight;//sets canvas height to page height
 //SETTINGS VARS: tweak these to your likeing, can be used to change how the game works
 
 var isLevelEditor = true;//can be set through the console, if true, the player can place tiles
+var valueTweaker = true;//displays a value tweaker to mess with values in the top left
 
 var cameraX = 0;//X pos of the camera
 var cameraY = 0;//Y pos of the camera
@@ -113,7 +114,11 @@ function main(){
 }
 
 //FUNCTIONS AND CLASSES
-
+function valueTweaker(displayed){
+    if(displayed){
+        ctx.fillRect(3,3,400,20);
+    }
+}
 
 function drawLevel(){
     for(var i = 0; i<level[pLevel].sizeX; i++){// i is X, l is Y
@@ -252,7 +257,7 @@ function movePlayer(){
 
     yVel += gravity;//adds gravity
 
-    //COLLIDERS -- UNUSED
+    //OLD COLLIDERS -- UNUSED
     /*playerY += yVel;
     if(getTileAtPosition(playerX,playerY) != "air"||getTileAtPosition(playerX+playerWidth,playerY+playerHeight) != "air"||getTileAtPosition(playerX,playerY+playerHeight) != "air"||getTileAtPosition(playerX+playerWidth,playerY) != "air"){//Y collider
         playerY -= yVel;
@@ -263,13 +268,13 @@ function movePlayer(){
     }*/
 
     if(yVel > 0 && !canAirJump){//if the player is falling, don't allow them to jump
-        if(!wallCling){
+        if(!wallCling){//if the player isn't hanging on the wall, don't let them jump
             jumps = 0;
         }
         jumpOffset = 0;
         grounded = false;
     }
-    if(yVel > 3){
+    if(yVel > 3){//if the player is moving too fast upward, don't let them cling to the wall
         wallCling = false;
     }
 
