@@ -53,6 +53,7 @@ var canWallJump = true;//is the player allowed to walljump?
 
 //END SETTINGS VARS, vars below this are changed by the script automatically (change them if you want, it just probably won't do much)
 
+let save = true;//can the script save things currently
 var jumpOffset = 0;//what direction the player is launched in, 0 is straight up. other values for wall jumps
 var wallCling = false;//is the player currently clinging to a wall
 var jumps = 2;//the amount of jumps the player has remaining.
@@ -219,6 +220,41 @@ function editLevel(){ //TODO FIX LEVEL EDITOR
             //picking pallate tiles
             //ctx.drawImage(selector,0,0,selectorImageSize,selectorImageSize,(Math.floor((mouseX-pallateMargins+cameraX)/(tileSize*2))*tileSize*2)-cameraX+pallateMargins,(Math.floor((mouseY-pallateMargins+cameraY)/(tileSize*2))*tileSize*2)-cameraY+pallateMargins,tileSize*2,tileSize*2,tileSize*2);
             //drawTile(selector,(Math.floor((mouseX+cameraX)/(tileSize*2))*tileSize*2)-cameraX,(Math.floor((mouseY+cameraY)/(tileSize*2))*tileSize*2)-cameraY,tileSize*2)//snaps tile overlay to the tile grid (this took me WAY too long)
+            
+            //file saving
+            const downloadToFile = (content, filename, contentType) => {//script comes from Rob Kendal, thanks rob!
+                const a = document.createElement('a');
+                const file = new Blob([content], {type: contentType});
+                
+                a.href= URL.createObjectURL(file);
+                a.download = filename;
+                a.click();
+                
+                URL.revokeObjectURL(a.href);
+              };
+
+            if (key.g){//saves a document using the above method.
+                if(save){
+                    //getting save data from level[]
+                    var saveData = "";//set the data to be saved to nothing
+                    saveData += "["//opens the main list
+                    for(var i = 0; i<level[pLevel].sizeX; i++){
+                        saveData += "["//opens part of the list
+                        for(var l = 0; l<level[pLevel].sizeY; l++){//gets data from each entry in the level var
+                            saveData += level[pLevel].layout[i][l].tileName;
+                            saveData += ",";//adds a comma between entries
+                        }
+                        saveData += "],";//closes part of the list
+                    }
+                    saveData += "]"//closes the list
+
+
+                    downloadToFile(saveData,"level.js","text/javascript");
+                }
+                save = false;
+            }else{
+                save = true;
+            }
             
 
 
