@@ -122,8 +122,8 @@ function valueTweaker(displayed){
 
     if(displayed){
         if (mouseX < tweakerWidth && mouseY < tweakerHeight){
-            tweakerHeight = 400;
-            tweakerWidth = 300;
+            tweakerHeight = 370;
+            tweakerWidth = 500;
 
             //values to be tweaked
             ctx.fillStyle = "black";
@@ -139,7 +139,10 @@ function valueTweaker(displayed){
             ctx.fillText("you can open the console using",10,210);
             ctx.fillText("'fn+f12' and navigating to the",10,230);
             ctx.fillText("'console' tab.",10,250);
-            ctx.fillText("to report bugs, text me or ",10,280);
+            ctx.fillText("to report bugs, text me or submit them to",10,280);
+            ctx.fillText("https://github.com/isaakboes/Troll-Alt-Delete/issues",10,300);
+
+
 
 
 
