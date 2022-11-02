@@ -142,18 +142,6 @@ function valueTweaker(displayed){
             ctx.fillText("to report bugs, text me or submit them to",10,280);
             ctx.fillText("https://github.com/isaakboes/Troll-Alt-Delete/issues",10,300);
 
-
-
-
-
-
-
-
-
-
-
-
-
         }else{
             tweakerWidth = 200;
             tweakerHeight = 30
@@ -162,8 +150,6 @@ function valueTweaker(displayed){
             ctx.font = "20px Arial";
             ctx.fillText("tweak values",20,20);
         }
-        
-
         
     }
 }
