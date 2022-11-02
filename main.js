@@ -235,7 +235,21 @@ function editLevel(){ //TODO FIX LEVEL EDITOR
 
             if (key.g){//saves a document using the above method.
                 if(save){
-                    downloadToFile(level[pLevel].layout,"level.js","text/javascript");
+                    //getting save data from level[]
+                    var saveData = "";//set the data to be saved to nothing
+                    saveData += "["//opens the main list
+                    for(var i = 0; i<level[pLevel].sizeX; i++){
+                        saveData += "["//opens part of the list
+                        for(var l = 0; l<level[pLevel].sizeY; l++){//gets data from each entry in the level var
+                            saveData += level[pLevel].layout[i][l].tileName;
+                            saveData += ",";//adds a comma between entries
+                        }
+                        saveData += "],";//closes part of the list
+                    }
+                    saveData += "]"//closes the list
+
+
+                    downloadToFile(saveData,"level.js","text/javascript");
                 }
                 save = false;
             }else{
