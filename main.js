@@ -113,19 +113,54 @@ function main(){
      
 }
 
+var tweakerWidth = 100;//width of the tweaker menu
+var tweakerHeight = 20;//hight of the tweaker menu
 //FUNCTIONS AND CLASSES
 function valueTweaker(displayed){
-    var tweakerWidth = 400;//width of the tweaker menu
-    var tweakerHeight = 60;//hight of the tweaker menu
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0,tweakerWidth,tweakerHeight);
 
     if(displayed){
         if (mouseX < tweakerWidth && mouseY < tweakerHeight){
-            ctx.fillRect(0,0,tweakerWidth*2,tweakerHeight*4);
-        }else{
-            ctx.fillRect(0,0,tweakerWidth,tweakerHeight);
-            ctx.fillText()
+            tweakerHeight = 400;
+            tweakerWidth = 300;
 
+            //values to be tweaked
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("not implimented yet,",10,20);
+            ctx.fillText("see readme.md on",10,40);
+            ctx.fillText("tweaking values. sorry!",10,60);
+            ctx.fillText("you can tweak things in the",10,90);
+            ctx.fillText("console by typing",10,110);
+            ctx.fillText("'variablename = value'",10,130);
+            ctx.fillText("a list of variables can be",10,160);
+            ctx.fillText("found at the top of main.js",10,180);
+            ctx.fillText("you can open the console using",10,210);
+            ctx.fillText("'fn+f12' and navigating to the",10,230);
+            ctx.fillText("'console' tab.",10,250);
+            ctx.fillText("to report bugs, text me or ",10,280);
+
+
+
+
+
+
+
+
+
+
+
+        }else{
+            tweakerWidth = 200;
+            tweakerHeight = 30
+            
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("tweak values",20,20);
         }
+        
+
         
     }
 }
