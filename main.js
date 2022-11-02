@@ -131,9 +131,9 @@ function valueTweaker(displayed){
             ctx.fillText("not implimented yet,",10,20);
             ctx.fillText("see readme.md on",10,40);
             ctx.fillText("tweaking values. sorry!",10,60);
-            ctx.fillText("you can tweak things in the",10,90);
+            ctx.fillText("you can tweak things manualy in the",10,90);
             ctx.fillText("console by typing",10,110);
-            ctx.fillText("'variablename = value'",10,130);
+            ctx.fillText("'variablename = value' and pressing enter.",10,130);
             ctx.fillText("a list of variables can be",10,160);
             ctx.fillText("found at the top of main.js",10,180);
             ctx.fillText("you can open the console using",10,210);
