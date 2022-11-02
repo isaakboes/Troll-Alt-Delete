@@ -100,7 +100,7 @@ function generateLevel(l = 0, levelWidth = 20, levelHeight = 20, playerOffsetX =
     level[l].pX = playerOffsetX;
     level[l].pY = playerOffsetY;
 
-    level[l].layout[levelHeight-1][2] = materials.plate;//adds a platform for the player
-    level[l].layout[3][2] = materials.plate;//adds a platform for the player
+    level[l].layout[levelHeight-1][2] = materials.single_plate;//adds a platform for the player
+    level[l].layout[3][2] = materials.single_plate;//adds a platform for the player
 
 }
