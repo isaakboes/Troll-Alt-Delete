@@ -28,7 +28,7 @@ canvas.height = pageHeight;//sets canvas height to page height
 //SETTINGS VARS: tweak these to your likeing, can be used to change how the game works
 
 var isLevelEditor = true;//can be set through the console, if true, the player can place tiles
-var valueTweaker = true;//displays a value tweaker to mess with values in the top left
+var displayValueTweaker = true;//displays a value tweaker to mess with values in the top left
 
 var cameraX = 0;//X pos of the camera
 var cameraY = 0;//Y pos of the camera
@@ -109,14 +109,24 @@ function main(){
     }
     
     
-   
+   valueTweaker(displayValueTweaker);
      
 }
 
 //FUNCTIONS AND CLASSES
 function valueTweaker(displayed){
+    var tweakerWidth = 400;//width of the tweaker menu
+    var tweakerHeight = 60;//hight of the tweaker menu
+
     if(displayed){
-        ctx.fillRect(3,3,400,20);
+        if (mouseX < tweakerWidth && mouseY < tweakerHeight){
+            ctx.fillRect(0,0,tweakerWidth*2,tweakerHeight*4);
+        }else{
+            ctx.fillRect(0,0,tweakerWidth,tweakerHeight);
+            ctx.fillText()
+
+        }
+        
     }
 }
 
