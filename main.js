@@ -28,6 +28,7 @@ canvas.height = pageHeight;//sets canvas height to page height
 //SETTINGS VARS: tweak these to your likeing, can be used to change how the game works
 
 var isLevelEditor = true;//can be set through the console, if true, the player can place tiles
+var displayValueTweaker = true;//displays a value tweaker to mess with values in the top left
 
 var cameraX = 0;//X pos of the camera
 var cameraY = 0;//Y pos of the camera
@@ -108,12 +109,64 @@ function main(){
     }
     
     
-   
+   valueTweaker(displayValueTweaker);
      
 }
 
+var tweakerWidth = 100;//width of the tweaker menu
+var tweakerHeight = 20;//hight of the tweaker menu
 //FUNCTIONS AND CLASSES
+function valueTweaker(displayed){
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0,tweakerWidth,tweakerHeight);
 
+    if(displayed){
+        if (mouseX < tweakerWidth && mouseY < tweakerHeight){
+            tweakerHeight = 370;
+            tweakerWidth = 500;
+
+            //values to be tweaked
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("not implimented yet,",10,20);
+            ctx.fillText("see readme.md on",10,40);
+            ctx.fillText("tweaking values. sorry!",10,60);
+            ctx.fillText("you can tweak things manualy in the",10,90);
+            ctx.fillText("console by typing",10,110);
+            ctx.fillText("'variablename = value' and pressing enter.",10,130);
+            ctx.fillText("a list of variables can be",10,160);
+            ctx.fillText("found at the top of main.js",10,180);
+            ctx.fillText("you can open the console using",10,210);
+            ctx.fillText("'fn+f12' and navigating to the",10,230);
+            ctx.fillText("'console' tab.",10,250);
+            ctx.fillText("to report bugs, text me or submit them to",10,280);
+            ctx.fillText("https://github.com/isaakboes/Troll-Alt-Delete/issues",10,300);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }else{
+            tweakerWidth = 200;
+            tweakerHeight = 30
+            
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("tweak values",20,20);
+        }
+        
+
+        
+    }
+}
 
 function drawLevel(){
     for(var i = 0; i<level[pLevel].sizeX; i++){// i is X, l is Y
@@ -252,7 +305,7 @@ function movePlayer(){
 
     yVel += gravity;//adds gravity
 
-    //COLLIDERS -- UNUSED
+    //OLD COLLIDERS -- UNUSED
     /*playerY += yVel;
     if(getTileAtPosition(playerX,playerY) != "air"||getTileAtPosition(playerX+playerWidth,playerY+playerHeight) != "air"||getTileAtPosition(playerX,playerY+playerHeight) != "air"||getTileAtPosition(playerX+playerWidth,playerY) != "air"){//Y collider
         playerY -= yVel;
@@ -263,13 +316,13 @@ function movePlayer(){
     }*/
 
     if(yVel > 0 && !canAirJump){//if the player is falling, don't allow them to jump
-        if(!wallCling){
+        if(!wallCling){//if the player isn't hanging on the wall, don't let them jump
             jumps = 0;
         }
         jumpOffset = 0;
         grounded = false;
     }
-    if(yVel > 3){
+    if(yVel > 3){//if the player is moving too fast upward, don't let them cling to the wall
         wallCling = false;
     }
 

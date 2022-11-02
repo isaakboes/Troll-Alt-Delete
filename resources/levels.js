@@ -74,6 +74,9 @@ materials.single_plate = new Tile("single_plate",tiles,3,1,8,2);//just 1
 materials.floor_plate = new Tile("floor_plate",tiles,4,1,8,4);
 materials.indented_plate = new Tile("indented_plate",tiles,3,0,9,4)
 materials.vent = new Tile("vent",tiles,4,0,4,0);
+materials.cross = new Tile("cross",tiles,4,2,5,0);
+materials.cross_vertical = new Tile("cross_vertical",tiles,3,2,6,0);
+
 
 
 
