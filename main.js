@@ -235,7 +235,7 @@ function editLevel(){ //TODO FIX LEVEL EDITOR
 
             if (key.g){//saves a document using the above method.
                 if(save){
-                    downloadToFile(level[pLevel],"test.js","text/javascript");
+                    downloadToFile(level[pLevel].layout,"level.js","text/javascript");
                 }
                 save = false;
             }else{
