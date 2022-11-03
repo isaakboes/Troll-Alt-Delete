@@ -53,6 +53,8 @@ function getKeyDown(k){//if the key is up
         case "f":key.f=true; break;
         case "G":
         case "g":key.g=true; break;
+        case "H":
+        case "h":key.h=true; break;
         case "Shift":key.shift=true;break;
         case "Control":key.control=true;break;
         case "Escape":key.escape = true;break;
@@ -79,6 +81,8 @@ function getKeyUp(k){//if the key is down
         case "f":key.f=false; break;
         case "G":
         case "g":key.g=false; break;
+        case "H":
+        case "h":key.h=false; break;
         case "Shift":key.shift=false;break;
         case "Control":key.control=false;break;
         case "Escape":key.escape = false;break;

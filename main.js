@@ -53,6 +53,7 @@ var canWallJump = true;//is the player allowed to walljump?
 
 //END SETTINGS VARS, vars below this are changed by the script automatically (change them if you want, it just probably won't do much)
 
+let load = true;//can the script load things currently
 let save = true;//can the script save things currently
 var jumpOffset = 0;//what direction the player is launched in, 0 is straight up. other values for wall jumps
 var wallCling = false;//is the player currently clinging to a wall
@@ -235,8 +236,9 @@ function editLevel(){ //TODO FIX LEVEL EDITOR
 
             if (key.g){//saves a document using the above method.
                 if(save){
+                    
                     //getting save data from level[]
-                    var saveData = "";//set the data to be saved to nothing
+                    var saveData = level[pLevel].sizeX + "," + level[pLevel].sizeY + ",";//set the data to be saved to nothing
                     saveData += "["//opens the main list
                     for(var i = 0; i<level[pLevel].sizeX; i++){
                         saveData += "["//opens part of the list
@@ -254,6 +256,18 @@ function editLevel(){ //TODO FIX LEVEL EDITOR
                 save = false;
             }else{
                 save = true;
+            }
+
+            //loading levels
+            
+            if (key.h){//saves a document using the above method.
+                if(load){
+                    console.log('loadLevel');
+                    
+                }
+                load = false;
+            }else{
+                load = true;
             }
             
 
